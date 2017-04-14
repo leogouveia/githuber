@@ -1,0 +1,18 @@
+PODS:
+  - Alamofire (4.4.0)
+  - Font-Awesome-Swift (1.6.1)
+  - MBProgressHUD (1.0.0)
+
+DEPENDENCIES:
+  - Alamofire (~> 4.4)
+  - Font-Awesome-Swift (~> 1.6.1)
+  - MBProgressHUD (~> 1.0.0)
+
+SPEC CHECKSUMS:
+  Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
+  Font-Awesome-Swift: 70ab020f6749d7048bb49807c3e78b702d78afca
+  MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
+
+PODFILE CHECKSUM: 3966317e7d78aad09dfaeb451b9f05253a5a1b4a
+
+COCOAPODS: 1.2.1
