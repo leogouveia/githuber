@@ -10,12 +10,10 @@
 		0BCAB8EF5A21FE27ED62FF01 /* Pods_Desafio_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33B83CD98CE0BC41993D98BA /* Pods_Desafio_iOS.framework */; };
 		145C20E3CDD2A4D161D76D12 /* Pods_Desafio_iOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFF30D0EF2F1102E94593A31 /* Pods_Desafio_iOSTests.framework */; };
 		1509966C1EA1364B005718BA /* PullsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1509966B1EA1364B005718BA /* PullsViewController.swift */; };
-		150996711EA13910005718BA /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150996701EA13910005718BA /* Repository.swift */; };
-		150996751EA13D1A005718BA /* RepositoryPull.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150996741EA13D1A005718BA /* RepositoryPull.swift */; };
-		15279A721EA15E48007011C6 /* Pull.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15279A711EA15E48007011C6 /* Pull.swift */; };
+		150996751EA13D1A005718BA /* Pull.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150996741EA13D1A005718BA /* Pull.swift */; };
 		15279A741EA16786007011C6 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15279A731EA16786007011C6 /* WebViewController.swift */; };
-		15279A761EA17DBC007011C6 /* JavaRepositories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15279A751EA17DBC007011C6 /* JavaRepositories.swift */; };
-		15467ED21EA014150016DF3D /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15467ED11EA014150016DF3D /* TableViewController.swift */; };
+		15279A761EA17DBC007011C6 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15279A751EA17DBC007011C6 /* Repository.swift */; };
+		15467ED21EA014150016DF3D /* ReposViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15467ED11EA014150016DF3D /* ReposViewController.swift */; };
 		15B25E6F1EA0119800083809 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B25E6E1EA0119800083809 /* AppDelegate.swift */; };
 		15B25E741EA0119800083809 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15B25E721EA0119800083809 /* Main.storyboard */; };
 		15B25E761EA0119800083809 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 15B25E751EA0119800083809 /* Assets.xcassets */; };
@@ -44,12 +42,10 @@
 
 /* Begin PBXFileReference section */
 		1509966B1EA1364B005718BA /* PullsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PullsViewController.swift; sourceTree = "<group>"; };
-		150996701EA13910005718BA /* Repository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
-		150996741EA13D1A005718BA /* RepositoryPull.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoryPull.swift; sourceTree = "<group>"; };
-		15279A711EA15E48007011C6 /* Pull.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pull.swift; sourceTree = "<group>"; };
+		150996741EA13D1A005718BA /* Pull.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pull.swift; sourceTree = "<group>"; };
 		15279A731EA16786007011C6 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
-		15279A751EA17DBC007011C6 /* JavaRepositories.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JavaRepositories.swift; sourceTree = "<group>"; };
-		15467ED11EA014150016DF3D /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		15279A751EA17DBC007011C6 /* Repository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
+		15467ED11EA014150016DF3D /* ReposViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReposViewController.swift; sourceTree = "<group>"; };
 		15B25E6B1EA0119800083809 /* Desafio-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Desafio-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		15B25E6E1EA0119800083809 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		15B25E731EA0119800083809 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -104,10 +100,8 @@
 		1509966D1EA13785005718BA /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				150996701EA13910005718BA /* Repository.swift */,
-				150996741EA13D1A005718BA /* RepositoryPull.swift */,
-				15279A711EA15E48007011C6 /* Pull.swift */,
-				15279A751EA17DBC007011C6 /* JavaRepositories.swift */,
+				150996741EA13D1A005718BA /* Pull.swift */,
+				15279A751EA17DBC007011C6 /* Repository.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -115,7 +109,7 @@
 		15467ECE1EA013FB0016DF3D /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				15467ED11EA014150016DF3D /* TableViewController.swift */,
+				15467ED11EA014150016DF3D /* ReposViewController.swift */,
 				1509966B1EA1364B005718BA /* PullsViewController.swift */,
 				15279A731EA16786007011C6 /* WebViewController.swift */,
 			);
@@ -485,12 +479,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				15B25E6F1EA0119800083809 /* AppDelegate.swift in Sources */,
-				150996751EA13D1A005718BA /* RepositoryPull.swift in Sources */,
-				15467ED21EA014150016DF3D /* TableViewController.swift in Sources */,
-				15279A761EA17DBC007011C6 /* JavaRepositories.swift in Sources */,
-				150996711EA13910005718BA /* Repository.swift in Sources */,
+				150996751EA13D1A005718BA /* Pull.swift in Sources */,
+				15467ED21EA014150016DF3D /* ReposViewController.swift in Sources */,
+				15279A761EA17DBC007011C6 /* Repository.swift in Sources */,
 				15279A741EA16786007011C6 /* WebViewController.swift in Sources */,
-				15279A721EA15E48007011C6 /* Pull.swift in Sources */,
 				1509966C1EA1364B005718BA /* PullsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -648,11 +640,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 75CB5P2G44;
 				INFOPLIST_FILE = "Desafio-iOS/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.leogouveia.Desafio-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -663,11 +656,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 75CB5P2G44;
 				INFOPLIST_FILE = "Desafio-iOS/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.leogouveia.Desafio-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

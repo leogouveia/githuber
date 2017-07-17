@@ -14,6 +14,7 @@ class WebViewController: UIViewController, UIWebViewDelegate {
     @IBOutlet weak var webView: UIWebView!
     var gitURL: String!
     var loadingNotifications: MBProgressHUD!
+    var thisURL: URL!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,9 +22,12 @@ class WebViewController: UIViewController, UIWebViewDelegate {
         loadingNotifications = MBProgressHUD.showAdded(to: self.view, animated: true)
         loadingNotifications?.mode = MBProgressHUDMode.indeterminate
         loadingNotifications?.label.text = "Loading"
-
+        print(self.gitURL)
+        self.thisURL = URL(string: self.gitURL)
         
-        webView.loadRequest(URLRequest(url: URL(string: self.gitURL)!))
+        webView.loadRequest(URLRequest(url: self.thisURL))
+        
+       
         
     }
     

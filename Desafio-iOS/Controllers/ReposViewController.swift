@@ -7,54 +7,55 @@
 //
 
 import UIKit
-import Alamofire
 import Font_Awesome_Swift
 import MBProgressHUD
 
 
-class TableViewController: UITableViewController {
+class ReposViewController: UITableViewController {
     
-    var searchURL = "https://api.github.com/search/repositories?q=language:Java&sort=stars&page="
+    var searchURL = "https://api.github.com/search/repositories?q=language:Java&sort=stars&page=1"
     var userURL = "https://api.github.com/users/"
     var loadingNotifications: MBProgressHUD?
     var indexOfPageToRequest = 1
     var numberOfRows = 0
     var numberOfRowsInPage = 30
-    var javaRepos = JavaRepositories()
+    var repos = [Repository]()
+    var loadedPages = 0
     
-    typealias JSONStandard = [String: AnyObject]
-    
+    private let indicatorFooter = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.gray)
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        getData(url: searchURL + String(indexOfPageToRequest))
+        indicatorFooter.frame.size.height = 100
+        indicatorFooter.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
+        indicatorFooter.startAnimating()
+        
+        getData()
     }
     
     
-    func getData(url: String){
-        DispatchQueue.main.async(execute: {
-            self.loadingNotifications = MBProgressHUD.showAdded(to: self.view, animated: true)
-            self.loadingNotifications?.mode = MBProgressHUDMode.indeterminate
-            self.loadingNotifications?.label.text = "Loading"
-            self.loadingNotifications?.show(animated: true)
+    func getData(){
+        self.loadingNotifications = MBProgressHUD.showAdded(to: self.view, animated: true)
+        self.loadingNotifications?.mode = MBProgressHUDMode.indeterminate
+        self.loadingNotifications?.label.text = "Carregando"
+        self.loadingNotifications?.show(animated: true)
         
-            Alamofire.request(url).responseJSON(completionHandler: {
-                response in
-                print("Inserting repos")
-                self.javaRepos.insertRepos(response.data!)
-                self.tableView.reloadData()
-                self.loadingNotifications?.hide(animated: true)
-            })
-
-        })
+        self.loadedPages += 1
+        
+        Repository.downloadRepositories(page: self.loadedPages) { repos in
+            self.repos += repos
+            self.loadingNotifications?.hide(animated: true)
+            self.tableView.tableFooterView = nil
+            self.tableView.reloadData()
+        }
     }
     
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        self.numberOfRows = javaRepos.repositories.count
-        return self.numberOfRows
+        return self.repos.count
+        
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -72,10 +73,11 @@ class TableViewController: UITableViewController {
         
         forkImage.setFAIconWithName(icon: .FACodeFork,textColor: #colorLiteral(red: 0.8256844878, green: 0.5479464531, blue: 0.06172423065, alpha: 1), backgroundColor: .clear)
         starImage.setFAIconWithName(icon: .FAStar, textColor: #colorLiteral(red: 0.8256844878, green: 0.5479464531, blue: 0.06172423065, alpha: 1), backgroundColor: .clear)
-        
+
         mainImageView.layer.cornerRadius = mainImageView.frame.size.width / 2
-        let repo = javaRepos.repositories[indexPath.row]
         
+        let repo = self.repos[indexPath.row]
+                
         mainImageView.image = repo.userAvatar
         mainLabel.text = repo.name
         descriptionLabel.text = repo.description
@@ -87,35 +89,23 @@ class TableViewController: UITableViewController {
         return cell!
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let indexPath = self.tableView.indexPathForSelectedRow?.row
-        let vc = segue.destination as! PullsViewController
-        let repo = self.javaRepos.repositories[indexPath!]
-        
-        vc.title = repo.name
-        vc.repositoryName = repo.name
-        vc.repositoryOwner = repo.userLoginName
-        vc.repositoryImage = repo.userAvatar
-    }
-    
-    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let offsetY = scrollView.contentOffset.y
-        let contentHeight = scrollView.contentSize.height
-
- 
-        if offsetY > contentHeight - scrollView.frame.size.height && self.numberOfRows >= numberOfRowsInPage {
-            numberOfRowsInPage += 30
-            indexOfPageToRequest += 1
-            
-            
-            print("puxando novos items")
-            
-            self.getData(url: self.searchURL + String(self.indexOfPageToRequest))
-        
-            
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if indexPath.row + 1 == repos.count {
+            tableView.tableFooterView = indicatorFooter
+            self.getData()
         }
         
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let indexPath = self.tableView.indexPathForSelectedRow?.row
+        let vc = segue.destination as! PullsViewController
+        let repo = self.repos[indexPath!]
+        vc.repo = repo
+    }
+    
+    
+    
 
 }
 
