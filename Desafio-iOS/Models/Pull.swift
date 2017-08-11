@@ -85,12 +85,11 @@ class Pull {
     }
     
     init(pullDictionary dict: Dictionary<String, AnyObject>) {
+        
         if let repo = dict["repo"] as? Dictionary<String, AnyObject> {
             if let name = repo["name"] as? String {
                 self._name = name
             }
-            
-            
         }
         
         if let title = dict["title"] as? String {
@@ -125,6 +124,10 @@ class Pull {
                 } catch {
                     self._image = UIImage()
                 }
+            }
+            
+            if let userName = user["login"] as? String {
+                self._name = userName
             }
             
         }

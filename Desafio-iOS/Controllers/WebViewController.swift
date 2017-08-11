@@ -22,7 +22,7 @@ class WebViewController: UIViewController, UIWebViewDelegate {
         loadingNotifications = MBProgressHUD.showAdded(to: self.view, animated: true)
         loadingNotifications?.mode = MBProgressHUDMode.indeterminate
         loadingNotifications?.label.text = "Loading"
-        print(self.gitURL)
+        //print(self.gitURL)
         self.thisURL = URL(string: self.gitURL)
         
         webView.loadRequest(URLRequest(url: self.thisURL))

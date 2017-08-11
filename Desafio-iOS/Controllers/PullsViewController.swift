@@ -65,6 +65,9 @@ class PullsViewController: UIViewController, UITableViewDataSource, UITableViewD
         
         prUserImage.image = pull.image
         
+        
+        print("Nome: \(pull.name)")
+        
         return cell
     }
     
@@ -87,6 +90,8 @@ class PullsViewController: UIViewController, UITableViewDataSource, UITableViewD
 //    }
     
     func getData(url: String, completed: @escaping DownloadCompleted){
+        print("url: \(url)")
+        
         Alamofire.request(url).responseJSON { response in
             let result = response.result
             
